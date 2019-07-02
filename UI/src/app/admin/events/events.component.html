@@ -1,0 +1,97 @@
+<form  #form="ngForm">
+<p-dataTable   #dt  [value]="Events"  [editable]="true" [tableStyle]="{'table-layout':'auto'}"   [paginator]="true" [rows]="10"[immutable]="false"  >
+    <p-header>
+      <div class="ui-helper-clearfix">
+      <button (click)="addNew()" label ="Add New" pButton style="float:left"></button>
+      <button type="button" pButton 
+        label="Export" (click)="dt.exportCSV()"  style="float:right"></button>
+      </div>
+    </p-header>
+  
+  
+      <p-column field="EventName" [sortable]="true" header="EventName"  >       
+        <ng-template let-row="rowData" pTemplate="body" >
+              <div *ngIf="!row.isEditable">{{row.EventName}}</div>          
+              <div *ngIf="row.isEditable" >              
+                <input type="text"   style="width:100px"
+                name="EventName" [(ngModel)]="row.EventName" pInputText >
+              </div>
+          </ng-template>
+  
+      </p-column>
+      <p-column field="EventDate"   [sortable]="true" header="EventDate"  >
+          <ng-template let-row="rowData" pTemplate="body">
+              <div *ngIf="!row.isEditable">{{row.EventDate}}</div>
+              <div *ngIf="row.isEditable">
+                 <input type="datetime-local" style="width:210px" name="EventDate"
+                   [ngModel]="row.EventDate|date:'yyyy-MM-ddTHH:mm'"  (ngModelChange)="row.EventDate = $event" pInputText>
+                <!-- <p-calendar [(ngModel)]="row.EventDate|date:'yyyy-MM-ddTHH:mm" [inline]="true"></p-calendar>-->
+              </div> 
+          </ng-template>
+  
+      </p-column>
+     <p-column field="Baselocation"   [sortable]="true" header="Location"  >
+      <ng-template let-row="rowData" pTemplate="body">
+          <div *ngIf="!row.isEditable">{{row.Baselocation}}</div>
+          <div *ngIf="row.isEditable">
+            <input type="text" style="width:80px" name="Baselocation"
+             [(ngModel)]="row.Baselocation" pInputText>
+         
+          </div>
+      </ng-template>
+  
+     </p-column>
+     <p-column field="Project"   [sortable]="true" header="Project" >
+      <ng-template let-row="rowData" pTemplate="body">
+          <div *ngIf="!row.isEditable">{{row.Project}}</div>
+          <div *ngIf="row.isEditable">
+            <input type="text" style="width:120px" name="Project"
+             [(ngModel)]="row.Project"  pInputText>
+          </div>
+      </ng-template>
+  
+     </p-column>
+     <p-column field="EventPOCId" [sortable]="true" header="EventPOCId"  >
+      <ng-template let-row="rowData" pTemplate="body">
+          <div *ngIf="!row.isEditable">{{row.EventPOCId}}</div>
+          <div *ngIf="row.isEditable">
+            <input type="text" style="width:80px" 
+            name="EventPOCId" [(ngModel)]="row.EventPOCId"   pInputText>
+          </div>
+      </ng-template>
+  
+     </p-column>
+     <p-column field="EventPOCName"   [sortable]="true" header="EventPOCName" >
+  
+      <ng-template let-row="rowData" pTemplate="body">
+          <div *ngIf="!row.isEditable">{{row.EventPOCName}}</div>
+          <div *ngIf="row.isEditable">
+            <input type="text" style="width:80px" name="EventPOCName"
+             [(ngModel)]="row.EventPOCName"  pInputText>
+            </div>
+      </ng-template>
+     </p-column>
+     <p-column field="" header="" >
+      <ng-template let-row="rowData" pTemplate="body">
+        <button (click)="editRow(row)" ><span class="glyphicon glyphicon-pencil"></span></button>
+      </ng-template>
+    </p-column>
+    <p-column field="" header="" >
+      <ng-template let-row="rowData" pTemplate="body">
+        <button (click)="save(row)"><span class="glyphicon glyphicon-ok"></span></button>
+      </ng-template>
+      
+    </p-column>
+    <p-column field="" header="" >
+      <ng-template let-row="rowData" pTemplate="body">
+        <button (click)="cancelRow(row)"><span class="glyphicon glyphicon-remove"></span></button>
+      </ng-template>
+      
+    </p-column>
+     <p-column field="" header="" >
+      <ng-template let-row="rowData" pTemplate="body">
+        <button (click)="delete(row)"> <span [style]="{'text-align':'center'}" class="glyphicon glyphicon-trash"></span></button>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</form>

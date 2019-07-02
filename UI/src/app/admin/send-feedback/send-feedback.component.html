@@ -1,0 +1,26 @@
+ 
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+<div class="ui-grid-row">
+      <div class="ui-grid-col-2"></div>
+  <div class="ui-grid-col-2">
+  <label for="EventId" class="col-md-8 control-label" style="padding: 0px;text-align: right;padding-left:10px;font-size: 11px " >Event Name*</label>
+</div>
+<div class="ui-grid-col-6">
+<select class="form-control col-md-4" 
+ id="EventName" placeholder="Required" [(ngModel)] ="selectedEvents" >
+      <option *ngFor="let e of Events" [ngValue]="e.EventId" >{{e.EventName}}</option>
+    </select> 
+   
+</div>
+</div>
+
+               <div class="ui-grid-row">
+              <div class="ui-grid-col-2"></div>
+              <div class="ui-grid-col-2"></div>
+               <div  class="ui-grid-col-6" style="align-content: center">
+               <button type="submit" class="col-md-4   btn btn-primary btn-block"  (click) ="SentFeedback()" >Send Feedback</button>
+              </div>
+              </div>
+
+</div>

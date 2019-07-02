@@ -1,0 +1,119 @@
+<form  #form="ngForm">
+    <p-dataTable  #dt  [value]="Enrollments" [editable]="true" [tableStyle]="{'table-layout':'auto'}"   [paginator]="true" [rows]="10"[immutable]="false"  >
+        <p-header>
+          <div class="ui-helper-clearfix">
+          <button (click)="addNew()" label ="Add New" pButton style="float:left"></button>
+          <button type="button" pButton 
+            label="Export" (click)="dt.exportCSV()" style="float:right"></button>
+          </div>
+        </p-header>      
+      
+          <p-column field="EventId" [sortable]="true" header="EventName"  >       
+            <ng-template let-row="rowData" pTemplate="body" >
+                  <div *ngIf="!row.isEditable">{{row.EventId}}</div>
+                 <!-- <div *ngIf="!row.isEditable">
+                  <div *ngFor="let e of Events" >
+                    {{ e.EventName}}
+                  </div>
+                </div>   -->             
+
+                <div *ngIf="row.isEditable" >              
+                    <!-- <input type="text" name="EventId"  style="width:100px" [(ngModel)]="row.EventId" pInputText -->
+                     <select class="form-control" [(ngModel)]="SelectedEnrollment" 
+                     id="EventName" name="Events" required #EventId="ngModel">
+                          <option *ngFor="let e of Events" [ngValue]="e.EventId" >{{e.EventName}}</option>
+                        </select> 
+                  
+                  </div>
+              </ng-template>
+      
+          </p-column>
+          <p-column field="EmployeeId"   [sortable]="true" header="EmployeeId"  >
+              <ng-template let-row="rowData" pTemplate="body">
+                  <div *ngIf="!row.isEditable">{{row.EmployeeId}}</div>
+                  <div *ngIf="row.isEditable">
+                     <input type="number" style="width:210px" name="EmployeeId" 
+                       [(ngModel)]="row.EmployeeId"  pInputText>
+                    <!-- <p-calendar [(ngModel)]="row.EventDate|date:'yyyy-MM-ddTHH:mm" [inline]="true"></p-calendar>-->
+                  </div> 
+              </ng-template>
+      
+          </p-column>
+         <p-column field="EmployeeName"   [sortable]="true" header="Employee Name"  >
+          <ng-template let-row="rowData" pTemplate="body">
+              <div *ngIf="!row.isEditable">{{row.EmployeeName}}</div>
+              <div *ngIf="row.isEditable">
+                <input type="text" style="width:80px" name="EmployeeName"
+                [(ngModel)]="row.EmployeeName" pInputText>
+             
+              </div>
+          </ng-template>
+      
+         </p-column>
+         <p-column field="BusinessUnit"   [sortable]="true" header="BusinessUnit" >
+          <ng-template let-row="rowData" pTemplate="body">
+              <div *ngIf="!row.isEditable">{{row.BusinessUnit}}</div>
+              <div *ngIf="row.isEditable">
+                <input type="text" style="width:120px" name="BusinessUnit"
+                [(ngModel)]="row.BusinessUnit"  pInputText>
+              </div>
+          </ng-template>
+      
+         </p-column>
+         <p-column field="ContactNumber" [sortable]="true" header="ContactNumber"  >
+          <ng-template let-row="rowData" pTemplate="body">
+              <div *ngIf="!row.isEditable">{{row.ContactNumber}}</div>
+              <div *ngIf="row.isEditable">
+                <input type="text" style="width:80px" name="ContactNumber"
+                 [(ngModel)]="row.ContactNumber"   pInputText>
+              </div>
+          </ng-template>
+      
+         </p-column>
+         <p-column field="AttendanceStatus"   [sortable]="true" header="Attendance Status" >
+      
+          <ng-template let-row="rowData" pTemplate="body">
+              <div *ngIf="!row.isEditable">{{row.AttendanceStatus}}</div>
+              <div *ngIf="row.isEditable">
+                <input type="text" style="width:80px" name="AttendanceStatus"
+                 [(ngModel)]="row.AttendanceStatus"  pInputText>
+                </div>
+          </ng-template>
+         </p-column>
+         
+         <p-column field="MailId"   [sortable]="true" header="MailId" >
+            
+                <ng-template let-row="rowData" pTemplate="body">
+                    <div *ngIf="!row.isEditable">{{row.MailId}}</div>
+                    <div *ngIf="row.isEditable">
+                      <input type="text" style="width:80px" name="MailId"
+                        [(ngModel)]="row.MailId"  pInputText>
+                      </div>
+                </ng-template>
+               </p-column>
+
+
+         <p-column field="" header="" >
+          <ng-template let-row="rowData" pTemplate="body">
+            <button (click)="editRow(row)" ><span class="glyphicon glyphicon-pencil"></span></button>
+          </ng-template>
+        </p-column>
+        <p-column field="" header="" >
+          <ng-template let-row="rowData" pTemplate="body">
+            <button (click)="save(row)"><span class="glyphicon glyphicon-ok"></span></button>
+          </ng-template>
+          
+        </p-column>
+        <p-column field="" header="" >
+          <ng-template let-row="rowData" pTemplate="body">
+            <button (click)="cancelRow(row)"><span class="glyphicon glyphicon-remove"></span></button>
+          </ng-template>
+          
+        </p-column>
+         <p-column field="" header="" >
+          <ng-template let-row="rowData" pTemplate="body">
+            <button (click)="delete(row)"> <span [style]="{'text-align':'center'}" class="glyphicon glyphicon-trash"></span></button>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </form>

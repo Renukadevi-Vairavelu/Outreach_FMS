@@ -1,0 +1,50 @@
+
+    <div style="text-align:center">
+        <h1>
+          Outreach Feedback Management System
+        </h1>
+      </div>
+      
+      
+      <nav class="navbar navbar-expand-sm" style="background-color: #212529;">   
+           
+          <ul class="navbar-nav">   
+              <li class="nav-item dropdown">                
+                    <a class="dropdown-item" href="/home" style="color:white;font-weight:bold;font-size:15px" >Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">                
+                    <a class="dropdown-item" href="/enrollement" style="color:white;font-weight:bold;font-size:15px" >Event Enrollment</a>
+                </li>
+
+            <li class="nav-item dropdown" >
+              
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" style="color:white;font-weight:bold;font-size:15px" data-toggle="dropdown">
+                Admin
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/events" style="color:black;font-weight:bold;font-size:13px">Event Master</a>
+                <a class="dropdown-item" href="/attendance" style="color:black;font-weight:bold;font-size:13px">Events Attendance</a>
+                <a class="dropdown-item" href="/feedback" style="color:black;font-weight:bold;font-size:13px">Send Feedback</a>
+              </div>
+            </li>
+      
+      
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" style="color:white;font-weight:bold;font-size:15px" data-toggle="dropdown">
+                  Reports
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/eventsEnrollment" style="color:black;font-weight:bold;font-size:13px">Events Enrollement Chart</a>
+                  <a class="dropdown-item" href="/eventsParticipation" style="color:black;font-weight:bold;font-size:13px">Events Participation Chart</a>
+                  <a class="dropdown-item" href="/eventsFeedback" style="color:black;font-weight:bold;font-size:13px">Events Feedback Chart</a>
+                  <!-- <a class="dropdown-item" href="#" style="color:black;font-weight:bold;font-size:13px">Feedback sent</a>             -->
+                </div>
+              </li>
+      
+          </ul>
+        </nav>
+
+
+
+<router-outlet></router-outlet>
