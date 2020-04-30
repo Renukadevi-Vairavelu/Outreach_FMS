@@ -27,7 +27,7 @@
     "font-awesome": "^4.7.0",
     "forms-angular": "^0.12.0-beta.39",
     "imap": "^0.8.19",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng2-charts": "^2.3.0",
     "ng2-datepicker": "^3.1.1",
     "popper.js": "^1.15.0",
